@@ -123,7 +123,7 @@
          <div class="form-group">
          <input type="text" id="to" placeholder="Enter your Mail" class="email"required></div>
          <div class="form-group">
-         <input type="text"  id="subject" placeholder="Subject" required></div>
+         <input type="text" class="subject"  id="subject" placeholder="Subject" required></div>
          <div class="form-group">
          <textarea id="message" cols="30"  rows="8" class="msg" placeholder="Message" required></textarea><br><br>
          <button onclick = "sendMail();" class="p-2 btn btn-success">Send a Message</button></center>
@@ -152,7 +152,7 @@
                       Password : "229B58951421FB1731FDF46196A5A1CAB687",
                       To : 'prathibhasolutions1@gmail.com',
                       From : "email.value",
-                      Subject : "This is the subject",
+                      Subject : "subject.value",
                       Body : "msg.value"
                   }).then(
                     message => alert(message)
