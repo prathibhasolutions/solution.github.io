@@ -117,20 +117,58 @@
                      <h2>Drop Me A Line</h2>
          <p>Looking forward to connecting with us? In case of any concerns, business queries or service requirements, Prathibha Solution would be happy to hear from you. We assure you of our response to your messages within 24 hours.</p>   
                      <br>
-         
+         <form class="contact_form" action="#">
          <div class="form-group">
-         <input type="text" id="sendername" placeholder="Name" required></div>
+         <input type="text" id="sendername" class="name"placeholder="Name" required></div>
          <div class="form-group">
-         <input type="text" id="to" placeholder="Enter your Mail" required></div>
+         <input type="text" id="to" placeholder="Enter your Mail" class="email"required></div>
          <div class="form-group">
-         <input type="text" id="subject" placeholder="Subject" required></div>
+         <input type="text"  id="subject" placeholder="Subject" required></div>
          <div class="form-group">
-         <textarea id="message" cols="30" rows="8" placeholder="Message" required></textarea><br><br>
+         <textarea id="message" cols="30"  rows="8" class="msg" placeholder="Message" required></textarea><br><br>
          <button onclick = "sendMail();" class="p-2 btn btn-success">Send a Message</button></center>
         </div>
+        </form>
+
+
+        <script src="https://smtpjs.com/v3/smtp.js"> </script>
+        
+        <script>
+
+        const form = document.querySelector('.contact_form');
+
+          function sendMsg(e){
+            e.preventDefault();
+          
+         
+                  const name =  document.querySelector('.name'),
+                        email = document.querySelector('.email'),
+                        msg = document.querySelector('.msg');
+
+
+                  Email.send({
+                      Host : "smtp.elasticemail.com",
+                      Username : "prathibhasolutions1@gmail.com",
+                      Password : "229B58951421FB1731FDF46196A5A1CAB687",
+                      To : 'prathibhasolutions1@gmail.com',
+                      From : "email.value",
+                      Subject : "This is the subject",
+                      Body : "msg.value"
+                  }).then(
+                    message => alert(message)
+                  );
+
+                }
+                form.addEventListener('submit', sendMsg);
+        </script>
+
+
+
+
+
        </div></div>
                         </div>
-                     </form>
+                    
                   </div> 
                </div>             
             </div>
@@ -141,30 +179,6 @@
     
     
 
-    <script>
-      function sendMail(){
-        (function(){
-          emailjs.init("fGWfT4A1Hcpi7WgxH");
-        })();
-
-        var params = {
-          sendername: document.querySelector("#sendername").value,
-          to: document.querySelector("#to").value,
-          subject: document.querySelector("#subject").value,
-          message: document.querySelector("#message").value,
-
-        };
-
-        var serviceID = "service_77nepuz";
-        var templateID = "template_m37j0tj";
-
-        emailjs.send(serviceID, templateID, params)
-        .then( res => {
-          alert("We have received your message! we will contact in 24 hours");
-        })
-        .catch();
-      }
-    </script>
     <div class="footer container-fluid p-5 bg-dark text-light">
       <div class="row">
         <div class=" col-sm-6 col-md-3 ">
